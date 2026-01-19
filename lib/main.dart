@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'core/theme/cineflow_theme.dart';
-import 'core/router/router_provider.dart';
-import 'core/storage/storage_provider.dart';
+import 'package:cineflow/core/theme/cineflow_theme.dart';
+import 'package:cineflow/core/router/router_provider.dart';
+import 'package:cineflow/core/storage/storage_provider.dart';
+import 'package:cineflow/core/theme/theme_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,12 +20,13 @@ class CineFlowApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(routerProvider);
+    final themeMode = ref.watch(themeNotifierProvider);
 
     return MaterialApp.router(
       title: 'CineFlow',
       theme: CineFlowTheme.lightTheme,
       darkTheme: CineFlowTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: themeMode,
       routerConfig: router,
       debugShowCheckedModeBanner: false,
     );

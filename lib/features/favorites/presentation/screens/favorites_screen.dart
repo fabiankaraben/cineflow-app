@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cineflow/features/movies/presentation/providers/movie_providers.dart';
 import 'package:cineflow/features/movies/presentation/widgets/movie_grid.dart';
+import 'package:cineflow/core/theme/theme_toggle_button.dart';
 
 class FavoritesScreen extends ConsumerWidget {
   const FavoritesScreen({super.key});
@@ -18,6 +19,7 @@ class FavoritesScreen extends ConsumerWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () => context.pop(),
         ),
+        actions: const [ThemeToggleButton()],
       ),
       body: favoritesAsync.when(
         data: (movies) => movies.isEmpty

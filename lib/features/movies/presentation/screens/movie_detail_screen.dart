@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cineflow/features/movies/domain/entities/movie.dart';
 import 'package:cineflow/features/movies/presentation/providers/movie_providers.dart';
+import 'package:cineflow/core/theme/theme_toggle_button.dart';
 
 class MovieDetailScreen extends ConsumerWidget {
   final Movie movie;
@@ -29,6 +30,7 @@ class MovieDetailScreen extends ConsumerWidget {
               onPressed: () => context.pop(),
             ),
             actions: [
+              const ThemeToggleButton(color: Colors.white),
               IconButton(
                 icon: Icon(
                   isFavorite ? Icons.favorite : Icons.favorite_border,
@@ -89,7 +91,7 @@ class MovieDetailScreen extends ConsumerWidget {
                           Text(
                             movie.releaseDate,
                             style: const TextStyle(
-                              color: Colors.white70,
+                              color: Colors.grey,
                               fontSize: 14,
                             ),
                           ),
@@ -131,10 +133,12 @@ class MovieDetailScreen extends ConsumerWidget {
                 const SizedBox(height: 12),
                 Text(
                   movie.overview,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
                     height: 1.5,
-                    color: Colors.white70,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white70
+                        : Colors.black87,
                   ),
                 ),
                 const SizedBox(height: 48),

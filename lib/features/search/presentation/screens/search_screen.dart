@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cineflow/features/movies/presentation/providers/movie_providers.dart';
 import 'package:cineflow/features/movies/presentation/widgets/movie_grid.dart';
+import 'package:cineflow/core/theme/theme_toggle_button.dart';
 
 class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
@@ -42,6 +43,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
           },
         ),
         actions: [
+          const ThemeToggleButton(),
           IconButton(
             icon: const Icon(Icons.clear),
             onPressed: () {

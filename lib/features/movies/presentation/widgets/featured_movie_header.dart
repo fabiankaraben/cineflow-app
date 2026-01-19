@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cineflow/features/movies/domain/entities/movie.dart';
+import 'package:cineflow/core/theme/theme_toggle_button.dart';
 
 class FeaturedMovieHeader extends StatelessWidget {
   final Movie movie;
@@ -14,13 +15,15 @@ class FeaturedMovieHeader extends StatelessWidget {
       expandedHeight: 450,
       pinned: true,
       stretch: true,
+      backgroundColor: Colors.transparent,
       actions: [
+        const ThemeToggleButton(color: Colors.white),
         IconButton(
-          icon: const Icon(Icons.favorite_border),
+          icon: const Icon(Icons.favorite_border, color: Colors.white),
           onPressed: () => context.go('/favorites'),
         ),
         IconButton(
-          icon: const Icon(Icons.search),
+          icon: const Icon(Icons.search, color: Colors.white),
           onPressed: () => context.go('/search'),
         ),
       ],

@@ -1,0 +1,12 @@
+{
+    "name": "cineflow",
+    "main": "src/index.ts",
+    "compatibility_date": "2024-11-01",
+    "assets": {
+        "directory": "./build/web",
+        "binding": "ASSETS"
+    },
+    "observability": {
+        "enabled": true
+    }
+}

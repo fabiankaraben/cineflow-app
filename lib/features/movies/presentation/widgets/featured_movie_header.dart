@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:go_router/go_router.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:cineflow/features/movies/domain/entities/movie.dart';
 import 'package:cineflow/core/theme/theme_toggle_button.dart';
 
@@ -17,6 +19,21 @@ class FeaturedMovieHeader extends StatelessWidget {
       stretch: true,
       backgroundColor: Colors.transparent,
       actions: [
+        IconButton(
+          icon: const FaIcon(
+            FontAwesomeIcons.github,
+            color: Colors.white,
+            size: 20,
+          ),
+          onPressed: () async {
+            final url = Uri.parse(
+              'https://github.com/fabiankaraben/cineflow-app',
+            );
+            if (await canLaunchUrl(url)) {
+              await launchUrl(url, mode: LaunchMode.externalApplication);
+            }
+          },
+        ),
         const ThemeToggleButton(color: Colors.white),
         IconButton(
           icon: const Icon(Icons.favorite_border, color: Colors.white),

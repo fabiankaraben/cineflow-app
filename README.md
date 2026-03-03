@@ -73,3 +73,33 @@ To run widget tests exclusively or specific files:
 ```bash
 flutter test test/features/movies/presentation/widgets/movie_card_test.dart
 ```
+
+## 🚗 Integration Testing
+
+This project includes end-to-end integration tests using `integration_test` that run directly on emulators, devices, and browsers.
+
+### Running on Mobile (iOS / Android)
+
+Run this command with a booted emulator or connected device:
+
+```bash
+flutter test integration_test/app_test.dart
+```
+
+### Running on Web (Chromedriver)
+
+To run integration tests on Chrome, you need to install and use `chromedriver` and the Flutter driver. 
+
+1. Start `chromedriver` on port 4444 in the background:
+```bash
+chromedriver --port=4444
+```
+
+2. Open another terminal and run the test using `flutter drive`:
+```bash
+flutter drive \
+  --driver=test_driver/integration_test.dart \
+  --target=integration_test/app_test.dart \
+  -d web-server \
+  --browser-name=chrome
+```

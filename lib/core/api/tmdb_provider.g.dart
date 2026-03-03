@@ -13,8 +13,9 @@ String _$tmdbClientHash() => r'3a6cd3c89cb18383a7b3f023b04dac27338e0d27';
 final tmdbClientProvider = AutoDisposeProvider<TMDB>.internal(
   tmdbClient,
   name: r'tmdbClientProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$tmdbClientHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$tmdbClientHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

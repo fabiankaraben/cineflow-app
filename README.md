@@ -42,5 +42,24 @@ lib/
     └── favorites/   # User's personal watchlist
 ```
 
----
-Developed with ❤️ for the cinematic experience.
+## 🧪 Testing
+
+This project includes unit tests for core entities and repositories using `flutter_test` and `mocktail`.
+
+To run all unit tests, execute the following command in the root of the project:
+
+```bash
+flutter test
+```
+
+Or with expanded output:
+
+```bash
+flutter test --reporter expanded
+```
+
+To run a specific test file:
+
+```bash
+flutter test test/features/movies/domain/entities/movie_test.dart
+```

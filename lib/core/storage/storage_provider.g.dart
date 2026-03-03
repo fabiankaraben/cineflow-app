@@ -13,8 +13,9 @@ String _$movieBoxHash() => r'475a2265c1cd12892cf2e7cf17b29c24786682bd';
 final movieBoxProvider = FutureProvider<Box>.internal(
   movieBox,
   name: r'movieBoxProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$movieBoxHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$movieBoxHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -27,8 +28,9 @@ String _$favoritesBoxHash() => r'be97bc97e77d4effeb3ea61037102f843d6abce8';
 final favoritesBoxProvider = FutureProvider<Box>.internal(
   favoritesBox,
   name: r'favoritesBoxProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$favoritesBoxHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$favoritesBoxHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

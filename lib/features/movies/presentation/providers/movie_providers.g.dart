@@ -54,21 +54,15 @@ class SearchMoviesFamily extends Family<AsyncValue<List<Movie>>> {
   const SearchMoviesFamily();
 
   /// See also [searchMovies].
-  SearchMoviesProvider call(
-    String query,
-  ) {
-    return SearchMoviesProvider(
-      query,
-    );
+  SearchMoviesProvider call(String query) {
+    return SearchMoviesProvider(query);
   }
 
   @override
   SearchMoviesProvider getProviderOverride(
     covariant SearchMoviesProvider provider,
   ) {
-    return call(
-      provider.query,
-    );
+    return call(provider.query);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -89,24 +83,19 @@ class SearchMoviesFamily extends Family<AsyncValue<List<Movie>>> {
 /// See also [searchMovies].
 class SearchMoviesProvider extends AutoDisposeFutureProvider<List<Movie>> {
   /// See also [searchMovies].
-  SearchMoviesProvider(
-    String query,
-  ) : this._internal(
-          (ref) => searchMovies(
-            ref as SearchMoviesRef,
-            query,
-          ),
-          from: searchMoviesProvider,
-          name: r'searchMoviesProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$searchMoviesHash,
-          dependencies: SearchMoviesFamily._dependencies,
-          allTransitiveDependencies:
-              SearchMoviesFamily._allTransitiveDependencies,
-          query: query,
-        );
+  SearchMoviesProvider(String query)
+    : this._internal(
+        (ref) => searchMovies(ref as SearchMoviesRef, query),
+        from: searchMoviesProvider,
+        name: r'searchMoviesProvider',
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$searchMoviesHash,
+        dependencies: SearchMoviesFamily._dependencies,
+        allTransitiveDependencies:
+            SearchMoviesFamily._allTransitiveDependencies,
+        query: query,
+      );
 
   SearchMoviesProvider._internal(
     super._createNotifier, {
@@ -163,7 +152,8 @@ mixin SearchMoviesRef on AutoDisposeFutureProviderRef<List<Movie>> {
 }
 
 class _SearchMoviesProviderElement
-    extends AutoDisposeFutureProviderElement<List<Movie>> with SearchMoviesRef {
+    extends AutoDisposeFutureProviderElement<List<Movie>>
+    with SearchMoviesRef {
   _SearchMoviesProviderElement(super.provider);
 
   @override
@@ -176,13 +166,14 @@ String _$favoritesHash() => r'd338ec0b71b4446ad633cabf2a82bfee917bc3e4';
 @ProviderFor(Favorites)
 final favoritesProvider =
     AutoDisposeAsyncNotifierProvider<Favorites, List<Movie>>.internal(
-  Favorites.new,
-  name: r'favoritesProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$favoritesHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      Favorites.new,
+      name: r'favoritesProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$favoritesHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$Favorites = AutoDisposeAsyncNotifier<List<Movie>>;
 // ignore_for_file: type=lint

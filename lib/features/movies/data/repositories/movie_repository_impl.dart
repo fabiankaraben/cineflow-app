@@ -1,6 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:tmdb_api/tmdb_api.dart';
-import 'package:dio/dio.dart';
 import 'package:cineflow/core/api/mock_movie_data.dart';
 import 'package:cineflow/features/movies/domain/entities/movie.dart';
 import 'package:cineflow/features/movies/domain/repositories/movie_repository.dart';

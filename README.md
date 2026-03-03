@@ -63,3 +63,13 @@ To run a specific test file:
 ```bash
 flutter test test/features/movies/domain/entities/movie_test.dart
 ```
+
+## 🖼️ Widget Testing
+
+This project also includes widget tests for the visual presentation components using `network_image_mock`.
+
+To run widget tests exclusively or specific files:
+
+```bash
+flutter test test/features/movies/presentation/widgets/movie_card_test.dart
+```
